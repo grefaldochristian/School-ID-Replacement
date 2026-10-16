@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073b25">
+  <meta name="description" content="Online School ID Replacement Request Portal - Veritas College of Irosin">
+  <title>School ID Replacement Portal | Veritas College of Irosin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="background-glow"></div>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a class="brand" href="#home" onclick="switchPage('home')">
+        <img src="logo.png" alt="Veritas College logo" class="school-logo" onerror="this.style.display='none'">
+        <span>
+          <strong>VERITAS COLLEGE OF IROSIN</strong>
+          <small>Online ID Replacement Portal</small>
+        </span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item active" data-page="home" onclick="switchPage('home')"><i
+            class="fa-solid fa-house"></i> Home</a>
+        <a href="#request" class="nav-item" data-page="request" onclick="switchPage('request')"><i
+            class="fa-regular fa-id-card"></i> Request ID</a>
+        <a href="#track" class="nav-item" data-page="track" onclick="switchPage('track')"><i
+            class="fa-solid fa-magnifying-glass"></i> Track</a>
+        <a href="#faqs" class="nav-item" data-page="faqs" onclick="switchPage('faqs')"><i
+            class="fa-regular fa-circle-question"></i> FAQs</a>
+        <a href="#contact" class="nav-item" data-page="contact" onclick="switchPage('contact')"><i
+            class="fa-regular fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="nav-auth" id="navAuth">
+        <button class="btn btn-outline-light" onclick="openAuthModal('login')">
+          Login
+        </button>
+        <button class="btn btn-gold" onclick="openAuthModal('register')">
+          <i class="fa-solid fa-user-plus"></i> Register
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- HOME -->
+    <section id="page-home" class="page-section active">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> STUDENT SERVICES PORTAL</span>
+          <h1>Your School ID.<br><span>Replaced with ease.</span></h1>
+          <p class="hero-description">
+            Lost, damaged, or expired your school ID? Submit a replacement request
+            online and track its progress from verification to completion.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-large" onclick="switchPage('request')">
+              Submit a Request <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-light btn-large" onclick="switchPage('track')">
+              <i class="fa-solid fa-magnifying-glass"></i> Track Request
+            </button>
+          </div>
+
+          <div class="trust-note">
+            <i class="fa-solid fa-circle-check"></i>
+            Simple application · Convenient status tracking
+          </div>
+          <p class="admin-link">
+            Administrative staff?
+            <a href="#admin" onclick="openAdminModal()">Open admin dashboard</a>
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+          <div class="floating-badge"><i class="fa-solid fa-check"></i> Student Services</div>
+
+          <div class="id-card-preview">
+            <div class="id-card-top">
+              <img src="logo.png" alt="" onerror="this.style.display='none'">
+              <div>
+                <strong>VERITAS COLLEGE</strong>
+                <small>OF IROSIN</small>
+              </div>
+              <i class="fa-solid fa-shield-halved card-shield"></i>
+            </div>
+            <div class="id-card-middle">
+              <div class="id-photo"><i class="fa-solid fa-user-graduate"></i></div>
+              <div class="id-info">
+                <small>STUDENT NAME</small>
+                <strong id="previewName">Your Name</strong>
+                <small>STUDENT NUMBER</small>
+                <strong id="previewId">ID: Your Student ID</strong>
+                <small>PROGRAM / SECTION</small>
+                <strong id="previewCourse">BSIT · 2nd Year · Block C</strong>
+              </div>
+            </div>
+            <div class="id-card-bottom">OFFICIAL STUDENT IDENTIFICATION</div>
+          </div>
+          <p class="preview-note"><i class="fa-solid fa-lock"></i> A convenient way to manage your ID request</p>
+        </div>
+      </div>
+
+      <div class="stats-strip">
+        <div><span class="stat-icon"><i class="fa-solid fa-bolt"></i></span><span><strong>Easy
+              Application</strong><small>Submit online</small></span></div>
+        <div><span class="stat-icon"><i class="fa-solid fa-list-check"></i></span><span><strong>Status
+              Updates</strong><small>Follow your request</small></span></div>
+        <div><span class="stat-icon"><i class="fa-solid fa-building-columns"></i></span><span><strong>Student
+              Services</strong><small>One convenient portal</small></span></div>
+      </div>
+
+      <div class="section-intro">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2>Three simple steps</h2>
+        <p>From application to claiming your replacement ID.</p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="info-card">
+          <span class="step-number">01</span>
+          <div class="info-icon"><i class="fa-regular fa-rectangle-list"></i></div>
+          <h3>Submit your request</h3>
+          <p>Enter your student information and explain why you need a replacement.</p>
+        </article>
+        <article class="info-card">
+          <span class="step-number">02</span>
+          <div class="info-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          <h3>Wait for verification</h3>
+          <p>The request can be reviewed and updated by authorized school staff.</p>
+        </article>
+        <article class="info-card">
+          <span class="step-number">03</span>
+          <div class="info-icon"><i class="fa-solid fa-id-card"></i></div>
+          <h3>Track your ID</h3>
+          <p>Use your tracking reference to check the latest recorded status.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- REQUEST FORM -->
+    <section id="page-request" class="page-section">
+      <div class="page-heading">
+        <span class="eyebrow">STUDENT SERVICES</span>
+        <h1>ID Replacement Request</h1>
+        <p>Complete the form below. Fields marked with * are required.</p>
+      </div>
+
+      <form id="replacementForm" class="panel form-panel">
+        <div class="form-section-title">
+          <span class="section-icon"><i class="fa-solid fa-user"></i></span>
+          <div>
+            <h2>Student Information</h2>
+            <p>Enter your current school details.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="studentName">Full Name *</label>
+            <input type="text" id="studentName" name="studentName" maxlength="120" placeholder="Enter your full name"
+              autocomplete="name" spellcheck="false" required>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="studentIdNumber">Student ID Number *</label>
+            <input type="text" id="studentIdNumber" name="studentIdNumber" placeholder="e.g. 2024-0873" maxlength="9"
+              inputmode="numeric" pattern="[0-9]{4}-[0-9]{4}" title="Enter exactly 8 digits, e.g. 2024-0873"
+              autocomplete="off" required>
+            <small class="input-error" id="studentIdError" role="alert"></small>
+          </div>
+
+
+          <div class="form-group">
+            <label for="studentEmail">Email Address *</label>
+            <input id="studentEmail" type="email" required maxlength="150" autocomplete="email"
+              placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="academicLevel">Academic Level *</label>
+            <select id="academicLevel" required>
+              <option value="College">College</option>
+              <option value="SHS">Senior High School (SHS)</option>
+            </select>
+          </div>
+          <div class="form-group" id="collegeProgramGroup">
+            <label for="programSelect">College Program *</label>
+            <select id="programSelect">
+              <option value="BSIT">BSIT - Information Technology</option>
+              <option value="BSBA">BSBA - Business Administration</option>
+              <option value="BSA">BSA - Accountancy</option>
+              <option value="BSED-Values">BSED - Values Education</option>
+              <option value="BSED-English">BSED - English</option>
+              <option value="BSED-Math">BSED - Mathematics</option>
+              <option value="BEED">BEED - Elementary Education</option>
+              <option value="BSCrim">BSCrim - Criminology</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="shsStrandGroup">
+            <label for="shsStrandSelect">SHS Strand *</label>
+            <select id="shsStrandSelect">
+              <option value="ABM">ABM</option>
+              <option value="STEM">STEM</option>
+              <option value="HUMSS">HUMSS</option>
+              <option value="GAS">GAS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="yearLevelSelect">Year / Grade Level *</label>
+            <select id="yearLevelSelect" required></select>
+          </div>
+          <div class="form-group">
+            <label for="sectionSelect" id="sectionLabelText">Block *</label>
+            <select id="sectionSelect" required>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="hidden" id="studentCourse">
+
+        <div class="form-divider"></div>
+        <div class="form-section-title">
+          <span class="section-icon"><i class="fa-solid fa-id-card"></i></span>
+          <div>
+            <h2>Replacement Details</h2>
+            <p>Tell us why your ID needs replacement.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="replacementReason">Reason for Replacement *</label>
+          <select id="replacementReason" required>
+            <option value="">Select a reason</option>
+            <option value="Lost / Misplaced ID">Lost / Misplaced ID</option>
+            <option value="Damaged / Broken ID">Damaged / Broken ID</option>
+            <option value="Expired ID / Faded Details">Expired ID / Faded Details</option>
+            <option value="Data Correction">Data Correction</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="reasonDetails">Incident Description</label>
+          <textarea id="reasonDetails" rows="4" maxlength="1000"
+            placeholder="Briefly describe what happened..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="idUpload">Supporting File (optional)</label>
+          <label class="upload-zone" id="dropZone" for="idUpload">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <strong id="fileNameDisplay">Choose a photo or PDF</strong>
+            <span>PNG, JPG, WEBP or PDF · Maximum 5 MB</span>
+            <input type="file" id="idUpload" accept=".png,.jpg,.jpeg,.webp,.pdf">
+          </label>
+          <p class="field-hint">Demo only: the file name is recorded; file contents are not uploaded or saved.</p>
+        </div>
+
+        <div class="form-notice">
+          <i class="fa-solid fa-circle-info"></i>
+          Please verify your information before submitting your request.
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-large">
+            <i class="fa-solid fa-paper-plane"></i> Submit Request
+          </button>
+          <button type="reset" class="btn btn-light btn-large">
+            <i class="fa-solid fa-rotate-left"></i> Reset Form
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- TRACK REQUEST -->
+    <section id="page-track" class="page-section">
+      <div class="page-heading">
+        <span class="eyebrow">REQUEST UPDATES</span>
+        <h1>Track Your Request</h1>
+        <p>Enter the tracking reference you received after submitting a request.</p>
+      </div>
+
+      <div class="panel track-panel">
+        <form id="trackForm" class="track-search">
+          <label for="trackInput">Tracking Reference or Student ID</label>
+          <div class="search-control">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="trackInput" required placeholder="e.g. VERITAS-123456">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+          <p class="field-hint">For privacy, use your unique tracking reference whenever possible.</p>
+        </form>
+      </div>
+
+      <div id="trackingMessage" class="message-box hidden" role="status"></div>
+
+      <div id="trackingResultContainer" class="panel tracking-result hidden">
+        <div class="result-header">
+          <div>
+            <span class="eyebrow">REQUEST REFERENCE</span>
+            <h2 id="resRefNumber">VERITAS-123456</h2>
+            <p id="resDate"></p>
+          </div>
+          <span id="resStatusBadge" class="status-badge pending">Pending</span>
+        </div>
+
+        <div class="result-details">
+          <div><small>Student Name</small><strong id="resStudentName"></strong></div>
+          <div><small>Student ID</small><strong id="resStudentId"></strong></div>
+          <div><small>Program / Section</small><strong id="resCourse"></strong></div>
+          <div><small>Reason</small><strong id="resReason"></strong></div>
+        </div>
+
+        <div class="timeline" id="trackingTimeline"></div>
+        <p class="field-hint">Status information reflects the latest data available in this browser demo.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="page-faqs" class="page-section">
+      <div class="page-heading">
+        <span class="eyebrow">HELP CENTER</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>Answers to common questions about ID replacement.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I request a replacement ID?</summary>
+          <p>Open Request ID, complete your student information, select a reason, and submit the form. Save your
+            tracking reference.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How much does a replacement ID cost?</summary>
+          <p>Please confirm the current replacement fee with the school's Registrar or Cashier. Any amount shown in this
+            prototype should be verified with the school.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does processing take?</summary>
+          <p>Processing time depends on school verification and printing. Contact the Registrar for the current expected
+            timeframe.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How can I check my request status?</summary>
+          <p>Open Track, enter your tracking reference, and select Search. The result shows the status recorded in the
+            demo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I upload a photo of my damaged ID?</summary>
+          <p>You can select a supported photo or PDF in this demo. Actual file storage and secure submission require a
+            backend server.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="page-contact" class="page-section">
+      <div class="page-heading">
+        <span class="eyebrow">WE'RE HERE TO HELP</span>
+        <h1>Contact Student Services</h1>
+        <p>Reach out to the appropriate school office for assistance.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <h2>Veritas College of Irosin</h2>
+          <p>For official contact details, please refer to the school's verified channels.</p>
+          <div class="contact-detail"><i class="fa-solid fa-location-dot"></i><span>Irosin, Sorsogon, Philippines</span>
+          </div>
+          <div class="contact-detail"><i class="fa-solid fa-envelope"></i><span>Confirm the official Registrar email
+              with the school.</span></div>
+          <p class="field-hint">Verify phone numbers and email addresses before publishing this website.</p>
+        </div>
+
+        <form id="contactForm" class="panel contact-form">
+          <h2>Send a Message</h2>
+          <p class="panel-subtitle">This demo displays a confirmation without sending an email.</p>
+          <div class="form-group">
+            <label for="contactName">Your Name *</label>
+            <input id="contactName" required maxlength="120" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email Address *</label>
+            <input id="contactEmail" type="email" required maxlength="150" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message *</label>
+            <textarea id="contactMessage" rows="4" required maxlength="2000" placeholder="How can we help?"></textarea>
+          </div>
+          <button class="btn btn-primary btn-large" type="submit">
+            <i class="fa-regular fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>VERITAS COLLEGE OF IROSIN</strong>
+        <span>Online School ID Replacement Portal</span>
+      </div>
+      <p>&copy; 2026 Veritas College of Irosin. For demonstration purposes.</p>
+    </div>
+  </footer>
+
+  <!-- SUCCESS MODAL -->
+  <div id="successModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal-card success-card">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+      <h2 id="successTitle">Request Submitted!</h2>
+      <p>Your demo request has been saved in this browser.</p>
+      <div class="reference-box">
+        <small>Your Tracking Reference</small>
+        <strong id="modalRefNumber">VERITAS-123456</strong>
+        <button class="copy-button" id="copyReferenceBtn" type="button">
+          <i class="fa-regular fa-copy"></i> Copy reference
+        </button>
+      </div>
+      <button class="btn btn-primary btn-large full-width" onclick="closeModalAndTrack()">
+        Track My Request
+      </button>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
+      <div class="modal-brand-icon"><i class="fa-solid fa-user-shield"></i></div>
+      <h2 id="authModalTitle">Student Login</h2>
+      <p id="authDescription" class="panel-subtitle">Sign in to the demo portal.</p>
+
+      <form id="authForm">
+        <div class="form-group hidden" id="regNameGroup">
+          <label for="regName">Full Name *</label>
+          <input id="regName" maxlength="120" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="authEmail">Email Address *</label>
+          <input id="authEmail" type="email" required maxlength="150" autocomplete="email"
+            placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="authPassword">Password *</label>
+          <input id="authPassword" type="password" required minlength="8" autocomplete="current-password"
+            placeholder="At least 8 characters">
+        </div>
+        <div id="authMessage" class="message-box hidden" role="status"></div>
+        <button class="btn btn-primary btn-large full-width" id="authSubmitBtn" type="submit">
+          Login
+        </button>
+      </form>
+      <p class="auth-switch-text" id="authSwitchText">
+        No account yet? <a href="#register" id="authSwitchLink">Create an account</a>
+      </p>
+      <p class="field-hint">Demo only. Do not use a real password. Browser storage is not secure authentication.</p>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN / DASHBOARD -->
+  <div id="adminModal" class="modal-overlay admin-overlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="admin-card">
+      <div class="admin-topbar">
+        <div>
+          <span class="eyebrow">ADMINISTRATION</span>
+          <h2 id="adminTitle"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</h2>
+        </div>
+        <button class="btn btn-light" onclick="closeAdminModal()"><i class="fa-solid fa-xmark"></i> Close</button>
+      </div>
+
+      <div id="adminLoginPanel">
+        <p class="panel-subtitle">Enter the demo admin password to view local requests.</p>
+        <form id="adminLoginForm" class="admin-login-form">
+          <div class="form-group">
+            <label for="adminPassword">Admin Password</label>
+            <input id="adminPassword" type="password" required autocomplete="current-password">
+          </div>
+          <button class="btn btn-primary" type="submit">Open Dashboard</button>
+          <p class="field-hint">Demo password: <strong>demoAdmin2026</strong>. Change or remove this before any real
+            deployment.</p>
+          <div id="adminLoginMessage" class="message-box hidden" role="status"></div>
+        </form>
+      </div>
+
+      <div id="adminDashboard" class="hidden">
+        <div class="admin-toolbar">
+          <div class="admin-stat"><small>Total requests</small><strong id="adminTotalCount">0</strong></div>
+          <div class="admin-stat"><small>Pending</small><strong id="adminPendingCount">0</strong></div>
+          <div class="admin-stat"><small>Approved</small><strong id="adminApprovedCount">0</strong></div>
+          <div class="admin-stat"><small>Completed</small><strong id="adminCompletedCount">0</strong></div>
+        </div>
+
+        <div class="admin-filters">
+          <input id="adminSearch" placeholder="Search name, ID, or reference...">
+          <select id="adminStatusFilter">
+            <option value="all">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Approved">Approved</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Student</th>
+                <th>Student ID</th>
+                <th>Reason</th>
+                <th>Date Filed</th>
+                <th>Status</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+        <p class="field-hint">Changes only affect the local demo data in this browser.</p>
+        <button class="btn btn-outline-danger" id="adminLogoutBtn">Log Out of Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
